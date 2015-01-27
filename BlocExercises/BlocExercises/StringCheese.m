@@ -12,19 +12,30 @@
 
 - (NSString *) favoriteCheeseStringWithCheese:(NSString *)cheeseName {
     /* WORK HERE */
-    return nil;
+    NSString *fullSentence = [NSString stringWithFormat:@"My favorite cheese is %@.", cheeseName];
+    return fullSentence;
 }
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
     /* WORK HERE */
-    return nil;
+    NSMutableString *shortName = [cheeseName mutableCopy];
+    NSRange cheeseRange = [shortName rangeOfString:@" cheese" options:NSCaseInsensitiveSearch];
+    // I suspect there's a more elegant way to do this
+    if (cheeseRange.location != NSNotFound) {
+        [shortName replaceCharactersInRange:cheeseRange withString:@""];
+        return shortName;
+    } else {
+        return shortName;
+    }
 }
 
 - (NSString *) numberOfCheesesStringWithCheeseCount:(NSUInteger)cheeseCount {
     if (cheeseCount == 1) {
-        /* WORK HERE, ASSUMING THERE IS 1 CHEESE */
+        NSString *cheeseString = (@"cheese");
+        return [NSString stringWithFormat:@"%lu %@", cheeseCount, cheeseString];
     } else {
-        /* WORK HERE, ASSUMING THERE ARE 2+ CHEESES */
+        NSString *cheeseString = (@"cheeses");
+        return [NSString stringWithFormat:@"%lu %@", cheeseCount, cheeseString];
     }
     
     /*
