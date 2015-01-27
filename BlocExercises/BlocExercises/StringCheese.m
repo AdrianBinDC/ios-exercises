@@ -18,15 +18,27 @@
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
     /* WORK HERE */
-    NSMutableString *shortName = [cheeseName mutableCopy];
-    NSRange cheeseRange = [shortName rangeOfString:@" cheese" options:NSCaseInsensitiveSearch];
-    // I suspect there's a more elegant way to do this
-    if (cheeseRange.location != NSNotFound) {
-        [shortName replaceCharactersInRange:cheeseRange withString:@""];
-        return shortName;
-    } else {
-        return shortName;
+    // another way to do it
+    
+    NSString *returnString = cheeseName;
+    
+    if ([[cheeseName lowercaseString] hasSuffix:@" cheese"]) {
+        NSRange cheeseRange = [cheeseName rangeOfString:@" cheese" options:NSCaseInsensitiveSearch | NSBackwardsSearch];
+        returnString = [cheeseName stringByReplacingCharactersInRange:cheeseRange withString:@""];
     }
+    
+    return returnString;
+
+    
+//    NSMutableString *shortName = [cheeseName mutableCopy];
+//    NSRange cheeseRange = [shortName rangeOfString:@" cheese" options:NSCaseInsensitiveSearch];
+//    // I suspect there's a more elegant way to do this
+//    if (cheeseRange.location != NSNotFound) {
+//        [shortName replaceCharactersInRange:cheeseRange withString:@""];
+//        return shortName;
+//    } else {
+//        return shortName;
+//    }
 }
 
 - (NSString *) numberOfCheesesStringWithCheeseCount:(NSUInteger)cheeseCount {
