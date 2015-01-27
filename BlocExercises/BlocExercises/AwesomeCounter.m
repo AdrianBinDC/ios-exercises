@@ -34,6 +34,8 @@
     
     // Construct the string starting at lowNumber, going to highNumber
     // sets starting point, end point, and interval
+    // ADDED THIS SO I COULD RESUBMIT A CHANGED FILE FOR GITHUB'S SAKE
+    // SUBMITTED THIS COMPLETION AS WRONG ASSIGNMENT
     for (NSInteger i = lowNumber; i <= highNumber; i++) {
         [newString appendFormat:@"%ld", (long)i];
     }
