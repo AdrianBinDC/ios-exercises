@@ -8,6 +8,12 @@
 
 #import "StuffRememberer.h"
 
+@interface StuffRememberer()
+@property (nonatomic, strong) NSMutableArray *arrayToRemember;
+@property (nonatomic, copy) NSMutableArray *arrayToCopy;
+@property (nonatomic, assign) CGFloat floatToRemember;
+@end
+
 @implementation StuffRememberer
 
 // These assign the stuff to remember/copy.
